@@ -1,24 +1,44 @@
-# README
+# RoR learning experiment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple Ruby on Rails app for learning purpose.
 
-Things you may want to cover:
+#### Features
 
-* Ruby version
+- User
+    - Auth
+	- Edition
+	- Deletion
+	
+- Post
+	- Listing
+	- Creation
+	- Edition
+	- Deletion
+	
+- Comment
+    - Listing
+    - Creation
+    - Deletion
 
-* System dependencies
+#### Setup
 
-* Configuration
+Download of clone the repo
+```shell
+git clone https://github.com/NicolasMica/RoR-blog.git demo
+```
+ 
+Install the dependencies
+```shell
+cd demo
+bundle install
+```
 
-* Database creation
+Migrate & seed the database
+```shell
+rake db:migrate && rake db:seed
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Start the server and navigate to [http://localhost:3000](http://localhost:3000)
+```shell
+rails server
+```
