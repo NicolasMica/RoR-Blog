@@ -43,6 +43,7 @@ posts.each do |post|
       comment.content = Faker::Lorem.paragraph(1, true, 4)
       comment.post = post
       comment.user = users.sample
+      comment.created_at = Faker::Date.between(post.created_at, Date.today)
     end
   end
 end
