@@ -1,0 +1,194 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/preflight";
+ */
+@tailwind preflight;
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
+
+.image {
+    @apply block max-h-full max-w-full self-center;
+}
+
+.label {
+    @apply mb-2 block uppercase tracking-wide text-xs font-bold text-grey-darker;
+}
+
+.input {
+    @apply mb-3 py-3 px-4 block rounded leading-tight appearance-none w-full bg-grey-lighter text-grey-darker;
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+
+    &.has-error {
+        @apply border border-red;
+    }
+}
+
+.card {
+    @apply flex flex-col h-full rounded shadow bg-white;
+}
+
+.button {
+    @apply flex items-center justify-center px-6 py-3 rounded cursor-pointer text-center;
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+
+    &:disabled {
+        @apply cursor-not-allowed;
+    }
+
+    &.is-teal {
+        @apply text-white bg-teal;
+
+        &:hover:not([disabled]) {
+            @apply bg-teal-light;
+        }
+
+        &:active:not([disabled]) {
+            @apply bg-teal-dark;
+        }
+
+        &.is-inverted {
+            @apply text-teal bg-teal-lightest;
+
+            &:hover:not([disabled]) {
+                @apply text-teal-dark bg-teal-lightest;
+            }
+        }
+    }
+
+    &.is-red {
+        @apply text-white bg-red;
+
+        &:hover:not([disabled]) {
+            @apply bg-red-dark;
+        }
+
+        &:active:not([disabled]) {
+            @apply bg-red-darker;
+        }
+
+        &.is-inverted {
+            @apply text-red bg-red-lightest;
+
+            &:hover:not([disabled]) {
+                @apply text-red-dark bg-red-lightest;
+            }
+        }
+    }
+
+    &.is-blue {
+        @apply text-white bg-blue;
+
+        &:hover:not([disabled]) {
+            @apply bg-blue-dark;
+        }
+
+        &:active:not([disabled]) {
+            @apply bg-blue-darker;
+        }
+
+        &.is-inverted {
+            @apply text-blue bg-blue-lightest;
+
+            &:hover:not([disabled]) {
+                @apply text-blue-dark bg-blue-lightest;
+            }
+        }
+    }
+
+    &.is-green {
+        @apply text-white bg-green;
+
+        &:hover:not([disabled]) {
+            @apply bg-green-dark;
+        }
+
+        &:active:not([disabled]) {
+            @apply bg-green-darker;
+        }
+
+        &.is-inverted {
+            @apply text-green bg-green-lightest;
+
+            &:hover:not([disabled]) {
+                @apply text-green-dark bg-green-lightest;
+            }
+        }
+    }
+}
+
+.comment {
+    @apply inline-flex px-6 py-3 rounded-lg rounded-tl-none shadow bg-white;
+}
+
+.notification {
+    @apply px-4 py-3 border-t-4 rounded-b shadow-md;
+
+    &.is-teal {
+        @apply bg-teal-lightest border-teal text-teal-darkest;
+    }
+
+    &.is-red {
+        @apply bg-red-lightest border-red text-red-darkest;
+    }
+}
+
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
