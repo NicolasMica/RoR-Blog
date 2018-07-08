@@ -29,5 +29,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-.idea/
+.idea/*
 public/uploads/
+public/js/
+public/css/
+public/mix-manifest.json
