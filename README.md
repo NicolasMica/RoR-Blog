@@ -42,3 +42,10 @@ Start the server and navigate to [http://localhost:3000](http://localhost:3000)
 ```shell
 rails server
 ```
+
+#### Default user
+A default user is created with the seeder, here are the credentials:
+
+Email: **john.doe@example.com**
+ 
+Password: **secret**
