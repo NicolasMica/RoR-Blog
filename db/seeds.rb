@@ -10,7 +10,16 @@ require 'faker'
 users = Array.new
 posts = Array.new
 
-for i in 1..6
+User.create({
+    firstname: 'John',
+    lastname: 'Doe',
+    email: 'john.doe@example.com',
+    password: 'secret',
+    password_confirmation: 'secret'
+})
+
+for i in 1..5
+
   user = User.create! do |user|
     user.firstname = Faker::Name.first_name
     user.lastname = Faker::Name.last_name
