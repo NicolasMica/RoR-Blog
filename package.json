@@ -8,8 +8,7 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "cross-env": "^5.2.0",
     "laravel-mix": "^2.1.11",
