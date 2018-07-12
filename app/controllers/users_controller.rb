@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user.destroy
     session[:user_id] = nil
 
-    redirect_to :action => 'index', notice: "Utilisateur supprimé avec succès !"
+    redirect_to :controller => 'posts', :action => 'index'
   end
 
   private
