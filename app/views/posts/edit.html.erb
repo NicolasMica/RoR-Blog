@@ -1,0 +1,18 @@
+<div class="px-4 sm:px-8 py-16">
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <div class="flex flex-col w-full sm:w-4/5">
+        <a href="<%= posts_path() %>" class="flex items-center mb-4 text-grey-dark hover:text-teal">
+          <span class="mr-2 text-sm">
+            <i class="fas fa-chevron-left"></i>
+          </span>
+          <span>Retour au blog</span>
+        </a>
+        <div class="card p-8">
+          <h1 class="mb-8 text-grey-darkest">Modifier un article</h1>
+          <%= render partial: 'form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

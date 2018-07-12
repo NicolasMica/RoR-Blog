@@ -1,0 +1,67 @@
+<%= form_for(@post) do |f| %>
+  <% unless @post.new_record? %>
+    <div class="flex flex-wrap -mx-4">
+      <!-- PREVIEW -->
+      <div class="mb-4 px-4 w-full lg:w-1/2">
+        <img src="<%= @post.image.thumb %>" alt="<%= @post.name %>" class="image">
+      </div>
+      <div class="flex flex-col px-4 w-full lg:w-1/2">
+        <!-- NAME -->
+        <div class="mb-4">
+          <%= f.label :name, 'Titre', class: 'label' %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'input', placeholder: 'Le titre de l\'article' %>
+          <%- if @post.errors[:name].any? %>
+            <p class="block text-xs text-red my-2"><%= @post.errors[:name].to_sentence.capitalize %></p>
+          <% end %>
+        </div>
+        <!-- IMAGE -->
+        <div class="mb-4">
+          <%= f.label :image, class: 'label' %>
+          <%= f.file_field :image, class: 'input py-2 leading-normal' %>
+          <%- if @post.errors[:image].any? %>
+            <p class="block text-xs text-red my-2"><%= @post.errors[:image].to_sentence.capitalize %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+  <div class="flex flex-wrap -mx-4">
+    <!-- NAME -->
+    <div class="mb-4 px-4 w-full lg:w-1/2">
+      <%= f.label :name, 'Titre', class: 'label' %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'input', placeholder: 'Le titre de l\'article' %>
+      <%- if @post.errors[:name].any? %>
+        <p class="block text-xs text-red my-2"><%= @post.errors[:name].to_sentence.capitalize %></p>
+      <% end %>
+    </div>
+    <!-- IMAGE -->
+    <div class="mb-4 px-4 w-full lg:w-1/2">
+      <%= f.label :image, class: 'label' %>
+      <%= f.file_field :image, class: 'input py-2 leading-normal' %>
+      <%- if @post.errors[:image].any? %>
+        <p class="block text-xs text-red my-2"><%= @post.errors[:image].to_sentence.capitalize %></p>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <!-- HEADING -->
+  <div class="mb-4">
+    <%= f.label :heading, 'En-tête', class: 'label' %>
+    <%= f.text_area :heading, autocomplete: "heading", class: 'input', placeholder: "Un court résumé de l'article" %>
+    <%- if @post.errors[:heading].any? %>
+      <p class="block text-xs text-red my-2"><%= @post.errors[:heading].to_sentence.capitalize %></p>
+    <% end %>
+  </div>
+  <!-- CONTENT -->
+  <div class="mb-4">
+    <%= f.label :content, 'Contenu', class: 'label' %>
+    <%= f.text_area :content, autocomplete: "content", class: 'input', rows: 8, placeholder: "Le contenu de l'article..." %>
+    <%- if @post.errors[:content].any? %>
+      <p class="block text-xs text-red my-2"><%= @post.errors[:content].to_sentence.capitalize %></p>
+    <% end %>
+  </div>
+  <!-- SUBMIT -->
+  <div class="flex">
+    <%= f.submit "Sauvegarder", class: 'button is-teal ml-auto' %>
+  </div>
+<% end %>

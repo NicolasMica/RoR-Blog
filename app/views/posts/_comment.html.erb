@@ -1,0 +1,11 @@
+<div class="flex items-center mb-2">
+  <p><%= link_to comment.user.fullname, user_path(comment.user), class: 'hover:text-teal' %>
+    <span class="text-sm text-grey-dark">&ndash; il y
+      a <%= time_ago_in_words(comment.created_at, include_seconds: true) %></span></p>
+  <% if user_signed_in? and (comment.user.id == current_user.id || post.user.id == current_user.id) %>
+    <%= link_to post_comment_path(post, comment), method: :delete, data: {confirm: "Êtes-vous sûr de vouloir supprimer ce commentaire ?"}, class: 'button p-2 text-grey hover:text-red', title: 'Supprimer' do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  <% end %>
+</div>
+<p class="comment mb-2"><%= comment.content %></p>

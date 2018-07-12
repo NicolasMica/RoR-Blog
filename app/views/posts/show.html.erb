@@ -1,0 +1,48 @@
+<div class="px-8 py-16">
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <div class="w-full md:w-2/3">
+        <div class="flex flex-col pb-8 sm:pb-16 mb-8 sm:mb-16 border-b border-grey-light">
+          <div class="flex items-center">
+            <a href="<%= posts_path() %>" class="flex items-center mb-4 text-grey-dark hover:text-teal">
+              <span class="mr-2 text-sm">
+                <i class="fas fa-chevron-left"></i>
+              </span>
+              <span>Retour au blog</span>
+            </a>
+            <% if user_signed_in? && @post.user.id == current_user.id %>
+              <nav class="flex items-center ml-auto">
+                <%= link_to edit_post_path(@post), class: 'button px-3 text-grey hover:text-teal', title: 'Modifier' do %>
+                  <i class="fas fa-cog"></i>
+                <% end %>
+                <%= link_to post_path(@post), method: :delete, data: { confirm: "Êtes-vous sûr de vouloir supprimer cet article ?" }, class: 'button px-3 text-grey hover:text-red', title: 'Supprimer' do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </nav>
+            <% end %>
+          </div>
+          <div class="mb-8 max-h-48">
+            <img src="<%= @post.image %>" alt="<%= @post.name %>" class="image">
+          </div>
+          <h1 class="mb-2 text-2xl md:text-4xl font-medium text-grey-darkest"><%= @post.name %></h1>
+          <p class="mb-8 text-sm text-grey-dark">Publié le <%= @post.created_at.strftime('%d/%m/%Y') %> par
+            <a href="<%= user_path(@post.user) %>" class="underline hover:text-teal"><%= @post.user.fullname %></a></p>
+          <p class="mb-4 font-medium"><%= @post.heading %></p>
+          <p><%= simple_format(@post.content) %></p>
+        </div>
+        <div class="flex flex-col">
+          <% if user_signed_in? %>
+            <h2 class="mb-4 text-xl font-normal">Ajouter un commentaire</h2>
+            <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+          <% end %>
+          <h2 class="mb-4 text-xl md:text-2xl font-medium"><%= @post.comments.count %> Commentaires</h2>
+          <%- @post.comments.each do |comment| %>
+            <div class="mb-8">
+              <%= render partial: 'comment', locals: { comment: comment, post: @post } %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
