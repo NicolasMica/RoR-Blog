@@ -1,0 +1,18 @@
+<%= form_for @comment, url: [@post, @comment]  do |f| %>
+  <!-- FORM -->
+  <div class="block mb-4 w-full">
+    <%= f.text_area :content, class: "comment w-full min-h-8", rows: '4', placeholder: 'Votre message...' %>
+    <%- if @comment.errors[:content].any? %>
+      <p class="block text-xs text-red my-2"><%= @comment.errors[:content].to_sentence.capitalize %></p>
+    <% end %>
+  </div>
+  <!-- BUTTON -->
+  <div class="flex">
+    <button type="submit" class="ml-auto button is-teal">
+      <span>Envoyer</span>
+      <span class="ml-2 text-teal-lighter">
+        <i class="far fa-paper-plane"></i>
+      </span>
+    </button>
+  </div>
+<% end %>
