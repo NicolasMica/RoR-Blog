@@ -6,7 +6,6 @@ This is a simple Ruby on Rails app for learning purpose.
 
 - User
     - Auth
-	- Edition
 	- Deletion
 	
 - Post
