@@ -1,0 +1,42 @@
+<div class="px-8 py-16">
+  <div class="container mx-auto">
+    <div class="flex justify-center items-center">
+      <div class="w-full md:w-1/2">
+        <!-- LOGIN CARD -->
+        <div class="card p-4">
+          <h2 class="mb-4 text-base font-normal uppercase tracking-wide text-grey-darker">Connexion</h2>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+            <div class="mb-4">
+              <%= f.label :email, class: 'label' %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input', placeholder: 'john@doe.com' %>
+            </div>
+
+            <div class="mb-4">
+              <%= f.label :password, class: 'label' %>
+              <%= f.password_field :password, autocomplete: "off", class: 'input', placeholder: '******' %>
+            </div>
+
+            <% if devise_mapping.rememberable? -%>
+              <div class="flex items-center mb-4">
+                <%= f.check_box :remember_me, class: 'mr-2' %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+
+            <div class="flex items-center">
+              <a href="#" class="text-grey-dark hover:text-teal">Mot de passe oublié ?</a>
+              <%= f.submit "Connexion", class: 'button is-teal ml-auto' %>
+            </div>
+          <% end %>
+        </div>
+        <!-- DIVIDER -->
+        <div class="flex items-center justify-center my-8 h-px w-full text-center bg-grey-light">
+          <span class="p-4 uppercase text-sm text-grey-darker bg-grey-lighter">ou</span>
+        </div>
+        <!-- REGISTER -->
+        <%= link_to 'Inscription', new_user_registration_path, class: 'button is-blue uppercase tracking-wide' %>
+      </div>
+    </div>
+  </div>
+</div>
