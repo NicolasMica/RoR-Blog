@@ -22,7 +22,7 @@ mix.js('app/assets/javascripts/app.js', 'public/js/')
 
 if (mix.inProduction()) {
     mix.version()
-        .purceCss({
+        .purgeCss({
             globs: [
                 path.join(__dirname, 'app/views/**/**.*'),
                 path.join(__dirname, 'app/assets/**/**.*')
