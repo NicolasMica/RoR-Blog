@@ -18,6 +18,63 @@
   </style>
 </head>
 
+<body class="antialiased font-sans bg-teal border-t-4 border-teal">
+<section id="root" class="min-h-screen w-screen bg-grey-lighter">
+
+  <div class="flex items-center">
+    <nav class="flex items-center">
+      <a href="/" class="button text-xl font-medium capitalize text-grey-darker">The Blog</a>
+    </nav>
+    <nav class="flex items-center ml-auto py-2">
+      <% if user_signed_in? %>
+        <%= link_to 'Mon compte', user_path(current_user), class: 'button text-grey-darker hover:text-teal-dark' %>
+        <%= link_to 'Déconnexion', destroy_user_session_path(), class: 'button text-grey-darker hover:text-teal-dark' %>
+      <% else %>
+        <%= link_to 'Connexion', new_user_session_path(), class: 'button text-grey-darker hover:text-teal-dark' %>
+        <%= link_to 'Inscription', new_user_registration_path(), class: 'button text-grey-darker hover:text-teal-dark' %>
+      <% end %>
+    </nav>
+  </div>
+
+  <% if (notice || alert) %>
+    <div class="py-4 bg-grey-lighter">
+      <div class="container mx-auto">
+        <% if (notice) %>
+          <div class="notification is-teal" role="alert">
+            <div class="flex">
+              <div class="py-1">
+                <span class="fill-current h-6 w-6 text-teal mr-4">
+                  <i class="fas fa-info"></i>
+                </span>
+              </div>
+              <div>
+                <p><%= notice %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <% if (alert) %>
+          <div class="notification is-red" role="alert">
+            <div class="flex items-center">
+              <div class="py-1">
+                <span class="fill-current h-6 w-6 text-red mr-4">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+              </div>
+              <div>
+                <p><%= alert %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</section>
+
 <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
 <script src="/js/app.js">
 </script>
